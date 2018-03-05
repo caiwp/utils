@@ -7,8 +7,8 @@ import (
 	"github.com/gocarina/gocsv"
 )
 
-func customCSVWrite(out io.Writer) *csv.Writer {
-	writer := csv.NewWriter(out)
+func customCSVWrite(out io.Writer) *gocsv.SafeCSVWriter {
+	writer := gocsv.NewSafeCSVWriter(csv.NewWriter(out))
 	writer.Comma = '\t'
 
 	return writer
